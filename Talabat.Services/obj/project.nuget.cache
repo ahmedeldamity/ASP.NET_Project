@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "rd2X7uyJyBVY3irdXPu/brJqSGoOVjL5K/IPnbOxMJwwDkg2U+7LtiPwQzCJ48tc57vQLRVYhQmfVpFV+Qy4gA==",
+  "success": true,
+  "projectFilePath": "D:\\Talabat.Solution\\Talabat.Services\\Talabat.Services.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Haitham\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\Haitham\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\Haitham\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512"
+  ],
+  "logs": []
+}
