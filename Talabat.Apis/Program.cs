@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Talabat.Apis.Errors;
 using Talabat.Apis.Extensions;
 using Talabat.Apis.Helpers;
+using Talabat.Apis.Middlewares;
 using Talabat.Core.Entities;
 using Talabat.Core.IRepositories;
 using Talabat.Repository;
@@ -47,18 +50,35 @@ namespace Talabat.Apis
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            // --- Bad Way To Register Dependancy Injection Of Generic Repositories
-            //builder.Services.AddScoped<IGenericRepositories<Product>, GenericRepositories<Product>>();
-            //builder.Services.AddScoped<IGenericRepositories<ProductBrand>, GenericRepositories<ProductBrand>>();
-            //builder.Services.AddScoped<IGenericRepositories<ProductCategory>, GenericRepositories<ProductCategory>>();
-            // --- Right Way To Register Dependancy Injection Of Generic Repositories
-            builder.Services.AddScoped(typeof(IGenericRepositories<>), typeof(GenericRepositories<>));
+            // This Fuction Has All Application Services
+            builder.Services.AddApplicationServices();
 
-            // --- Two Ways To Register AutoMapper
-            // - First (harder)
-            //builder.Services.AddAutoMapper(M => M.AddProfile(new MappingProfiles()));
-            // - Second (easier)
-            builder.Services.AddAutoMapper(typeof(MappingProfiles));
+            #region Validation Error - Bad Request
+            // -- Validation Error (Bad Request) 
+            // --- First: We need to bring options which have InvalidModelState
+            builder.Services.Configure<ApiBehaviorOptions>(options =>
+            {
+                // --- then we need all data (actionContext) of action has validation error
+                options.InvalidModelStateResponseFactory = (actionContext) =>
+                {
+                    // --- then we bring ModelState: Dictionary key/value pair for each parameter, and value has property Errors Array have all errors
+                    // --- and we use where to bring dictionary key/value pair which is value has errors 
+                    var errors = actionContext.ModelState.Where(P => P.Value.Errors.Count() > 0)
+                    // --- then we use SelectMany to make one array of all error  
+                    .SelectMany(P => P.Value.Errors)
+                    // --- then we use Select to bring from errors just ErrorMessages
+                    .Select(E => E.ErrorMessage)
+                    .ToArray();
+                    // --- then we insert this errors to the class we made
+                    var validationErrorResponse = new ApiValidationErrorResponse()
+                    {
+                        Errors = errors
+                    };
+                    // then return it :)
+                    return new BadRequestObjectResult(validationErrorResponse);
+                };
+            });
+            #endregion
 
             #endregion
 
@@ -75,7 +95,7 @@ namespace Talabat.Apis
 
             // --> Bring Object Of StoreDbContext For Update Database
             var _storeDbContext = services.GetRequiredService<StoreDbContext>();
-            // --> Bring Object Of ILoggerFactory For Good Show Error In Console
+            // --> Bring Object Of ILoggerFactory For Good Show Error In Console    
             var loggerFactory = services.GetRequiredService<ILoggerFactory>();
 
             try
@@ -95,11 +115,17 @@ namespace Talabat.Apis
 
             #region Configure Kestral Middlewares   
 
+            // -- Server Error Middleware (we catch it in class ExceptionMiddleware)
+            app.UseMiddleware<ExceptionMiddleware>();
+
             if (app.Environment.IsDevelopment())
             {
                 // -- Add Swagger Middelwares In Extension Method
                 app.AddSwaggerMiddlewares();
             }
+
+            // -- Error Not Found End Point: Here When This Error Thrown: It Redirect To This End Point in (Controller: Errors)
+            app.UseStatusCodePagesWithReExecute("/Errors/{0}");
 
             // -- To Redirect Any Http Request To Https
             app.UseHttpsRedirection();

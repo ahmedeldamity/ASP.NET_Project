@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Talabat.Solution\\Talabat.Core\\Talabat.Core.csproj",
+      "projectUniqueName": "D:\\ASP.NET_Project\\Talabat.Core\\Talabat.Core.csproj",
       "projectName": "Talabat.Core",
-      "projectPath": "D:\\Talabat.Solution\\Talabat.Core\\Talabat.Core.csproj",
+      "projectPath": "D:\\ASP.NET_Project\\Talabat.Core\\Talabat.Core.csproj",
       "packagesPath": "C:\\Users\\Haitham\\.nuget\\packages\\",
-      "outputPath": "D:\\Talabat.Solution\\Talabat.Core\\obj\\",
+      "outputPath": "D:\\ASP.NET_Project\\Talabat.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Haitham\\AppData\\Roaming\\NuGet\\NuGet.Config",

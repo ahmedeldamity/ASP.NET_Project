@@ -2537,11 +2537,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Talabat.Solution\\Talabat.Apis\\Talabat.Apis.csproj",
+      "projectUniqueName": "D:\\ASP.NET_Project\\Talabat.Apis\\Talabat.Apis.csproj",
       "projectName": "Talabat.Apis",
-      "projectPath": "D:\\Talabat.Solution\\Talabat.Apis\\Talabat.Apis.csproj",
+      "projectPath": "D:\\ASP.NET_Project\\Talabat.Apis\\Talabat.Apis.csproj",
       "packagesPath": "C:\\Users\\Haitham\\.nuget\\packages\\",
-      "outputPath": "D:\\Talabat.Solution\\Talabat.Apis\\obj\\",
+      "outputPath": "D:\\ASP.NET_Project\\Talabat.Apis\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Haitham\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2558,8 +2558,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Talabat.Solution\\Talabat.Repository\\Talabat.Repository.csproj": {
-              "projectPath": "D:\\Talabat.Solution\\Talabat.Repository\\Talabat.Repository.csproj"
+            "D:\\ASP.NET_Project\\Talabat.Repository\\Talabat.Repository.csproj": {
+              "projectPath": "D:\\ASP.NET_Project\\Talabat.Repository\\Talabat.Repository.csproj"
             }
           }
         }

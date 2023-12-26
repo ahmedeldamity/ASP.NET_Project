@@ -9,3 +9,14 @@ D:\Talabat.Solution\Talabat.Core\obj\Debug\net6.0\Talabat.Core.dll
 D:\Talabat.Solution\Talabat.Core\obj\Debug\net6.0\refint\Talabat.Core.dll
 D:\Talabat.Solution\Talabat.Core\obj\Debug\net6.0\Talabat.Core.pdb
 D:\Talabat.Solution\Talabat.Core\obj\Debug\net6.0\ref\Talabat.Core.dll
+D:\ASP.NET_Project\Talabat.Core\bin\Debug\net6.0\Talabat.Core.deps.json
+D:\ASP.NET_Project\Talabat.Core\bin\Debug\net6.0\Talabat.Core.dll
+D:\ASP.NET_Project\Talabat.Core\bin\Debug\net6.0\Talabat.Core.pdb
+D:\ASP.NET_Project\Talabat.Core\obj\Debug\net6.0\Talabat.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASP.NET_Project\Talabat.Core\obj\Debug\net6.0\Talabat.Core.AssemblyInfoInputs.cache
+D:\ASP.NET_Project\Talabat.Core\obj\Debug\net6.0\Talabat.Core.AssemblyInfo.cs
+D:\ASP.NET_Project\Talabat.Core\obj\Debug\net6.0\Talabat.Core.csproj.CoreCompileInputs.cache
+D:\ASP.NET_Project\Talabat.Core\obj\Debug\net6.0\Talabat.Core.dll
+D:\ASP.NET_Project\Talabat.Core\obj\Debug\net6.0\refint\Talabat.Core.dll
+D:\ASP.NET_Project\Talabat.Core\obj\Debug\net6.0\Talabat.Core.pdb
+D:\ASP.NET_Project\Talabat.Core\obj\Debug\net6.0\ref\Talabat.Core.dll
