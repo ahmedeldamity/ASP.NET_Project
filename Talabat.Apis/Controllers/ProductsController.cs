@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Talabat.Apis.Dtos;
 using Talabat.Apis.Errors;
+using Talabat.Apis.Helpers;
 using Talabat.Core.Entities;
 using Talabat.Core.IRepositories;
 using Talabat.Core.Specifications.Product_Specifications;
@@ -25,15 +26,21 @@ namespace Talabat.Apis.Controllers
             _categoriesRepo = categoriesRepo;
             _mapper = mapper;
         }
-
+        
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts(string? sort, int? brandId, int? categoryId)
+        public async Task<ActionResult<IReadOnlyList<Pagination<ProductToReturnDto>>>> GetProducts([FromQuery] ProductSpecificationParams specParams)
         {
-            var specifications = new ProductWithBrandAndCategorySpecifications(sort, brandId, categoryId);
+            var specifications = new ProductWithAllSpecifications(specParams);
 
             var products = await _productsRepo.GetAllWithSpecificationsAsync(specifications);
 
-            return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products));
+            var data = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products);
+
+            var specificationsForCount = new ProductWithFilterationSpecificationsForCount(specParams);
+
+            var count = await _productsRepo.GetCountAsync(specificationsForCount);
+
+            return Ok(new Pagination<ProductToReturnDto>(specParams.PageIndex, specParams.PageSize, count, data));
         }
 
         [HttpGet("{id}")]
@@ -41,7 +48,7 @@ namespace Talabat.Apis.Controllers
         [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ProductToReturnDto>> GetProduct(int id)
         {
-            var specifications = new ProductWithBrandAndCategorySpecifications(id);
+            var specifications = new ProductWithAllSpecifications(id);
 
             var product = await _productsRepo.GetByIdWithSpecificationsAsync(specifications);
 

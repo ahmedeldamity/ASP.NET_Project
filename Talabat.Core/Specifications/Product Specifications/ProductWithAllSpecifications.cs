@@ -7,20 +7,21 @@ using Talabat.Core.Entities;
 
 namespace Talabat.Core.Specifications.Product_Specifications
 {
-    public class ProductWithBrandAndCategorySpecifications: BaseSpecifications<Product>
+    public class ProductWithAllSpecifications: BaseSpecifications<Product>
     {
-        public ProductWithBrandAndCategorySpecifications(string? sort, int? brandId, int? categoryId)
+        public ProductWithAllSpecifications(ProductSpecificationParams specParams)
         {
             WhereCriteria = P => 
-            (!brandId.HasValue || P.BrandId == brandId) && 
-            (!categoryId.HasValue || P.CategoryId == categoryId);
+            (!specParams.BrandId.HasValue || P.BrandId == specParams.BrandId) && 
+            (!specParams.CategoryId.HasValue || P.CategoryId == specParams.CategoryId) &&
+            (string.IsNullOrEmpty(specParams.Search) || P.Name.ToLower().Contains(specParams.Search.ToLower()));
 
             IncludeCriterias.Add(c => c.Brand);
             IncludeCriterias.Add(c => c.Category); 
 
-            if(!string.IsNullOrEmpty(sort))
+            if(!string.IsNullOrEmpty(specParams.Sort))
             {
-                switch(sort)
+                switch(specParams.Sort)
                 {
                     case "priceAsc":
                         OrderBy = p => p.Price;
@@ -37,8 +38,10 @@ namespace Talabat.Core.Specifications.Product_Specifications
             {
                 OrderBy = p => p.Name;
             }
+
+            ApplyPagination((specParams.PageIndex - 1) * specParams.PageSize, specParams.PageSize);
         }
-        public ProductWithBrandAndCategorySpecifications(int id)
+        public ProductWithAllSpecifications(int id)
         {
             WhereCriteria = p => p.Id == id;
             IncludeCriterias.Add(c => c.Brand);
