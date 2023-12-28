@@ -12,6 +12,9 @@ namespace Talabat.Core.Specifications
     {
         public Expression<Func<T, bool>> WhereCriteria { get; set; }
         public List<Expression<Func<T, object>>> IncludeCriterias { get; set; } = new List<Expression<Func<T, object>>>();
+        public Expression<Func<T, object>> OrderBy { get; set; }
+        public Expression<Func<T, object>> OrderByDesc { get; set; }
+
         public BaseSpecifications()
         {
             // I Was Thinking Why We Doing This Constractor although if the developer use it then 
@@ -19,9 +22,10 @@ namespace Talabat.Core.Specifications
             // but i know that: we created it because if we doing any special specification inherit from it
             // and don't need any whereCriteriaExpression
         }
-        public BaseSpecifications(Expression<Func<T, bool>> whereCriteriaExpression)
-        {
-            WhereCriteria = whereCriteriaExpression;
-        }
+
+        //public BaseSpecifications(Expression<Func<T, bool>> whereCriteriaExpression)
+        //{
+        //    WhereCriteria = whereCriteriaExpression;
+        //}
     }
-}
+} 
