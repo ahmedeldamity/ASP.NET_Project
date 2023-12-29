@@ -21,7 +21,10 @@ namespace Talabat.Apis.Extensions
             // - Second (easier)
             services.AddAutoMapper(typeof(MappingProfiles));
 
+            // Register Basket Repository
+            services.AddScoped<IBasketRepository, BasketRepository>();
+
             return services;
         }
-    }
+    } 
 }

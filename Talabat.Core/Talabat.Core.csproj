@@ -12,4 +12,8 @@
     <None Remove="NewFolder1\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="StackExchange.Redis" Version="2.7.10" />
+  </ItemGroup>
+
 </Project>

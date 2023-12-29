@@ -9,3 +9,14 @@ D:\Talabat.Solution\Talabat.Services\obj\Debug\net6.0\Talabat.Services.dll
 D:\Talabat.Solution\Talabat.Services\obj\Debug\net6.0\refint\Talabat.Services.dll
 D:\Talabat.Solution\Talabat.Services\obj\Debug\net6.0\Talabat.Services.pdb
 D:\Talabat.Solution\Talabat.Services\obj\Debug\net6.0\ref\Talabat.Services.dll
+D:\ASP.NET_Project\Talabat.Services\bin\Debug\net6.0\Talabat.Services.deps.json
+D:\ASP.NET_Project\Talabat.Services\bin\Debug\net6.0\Talabat.Services.dll
+D:\ASP.NET_Project\Talabat.Services\bin\Debug\net6.0\Talabat.Services.pdb
+D:\ASP.NET_Project\Talabat.Services\obj\Debug\net6.0\Talabat.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASP.NET_Project\Talabat.Services\obj\Debug\net6.0\Talabat.Services.AssemblyInfoInputs.cache
+D:\ASP.NET_Project\Talabat.Services\obj\Debug\net6.0\Talabat.Services.AssemblyInfo.cs
+D:\ASP.NET_Project\Talabat.Services\obj\Debug\net6.0\Talabat.Services.csproj.CoreCompileInputs.cache
+D:\ASP.NET_Project\Talabat.Services\obj\Debug\net6.0\Talabat.Services.dll
+D:\ASP.NET_Project\Talabat.Services\obj\Debug\net6.0\refint\Talabat.Services.dll
+D:\ASP.NET_Project\Talabat.Services\obj\Debug\net6.0\Talabat.Services.pdb
+D:\ASP.NET_Project\Talabat.Services\obj\Debug\net6.0\ref\Talabat.Services.dll

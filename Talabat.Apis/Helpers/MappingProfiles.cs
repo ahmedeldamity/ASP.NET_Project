@@ -24,6 +24,10 @@ namespace Talabat.Apis.Helpers
                 //.ForMember(d => d.PictureUrl, o => o.MapFrom(s => $"{_configuration["ApiBaseUrl"]}/{s.PictureUrl}"))
                 // -- the solution of this issue is: instead of using MapFrom I use MapFrom<"class inherit from IValueResolver<sourse, destination, member>">
                 .ForMember(d => d.PictureUrl, o => o.MapFrom<ProductPictureUrlResolver>());
+
+            CreateMap<BasketDto, Basket>();
+            
+            CreateMap<BasketItemDto, BasketItem>();
         }   
     }
 }

@@ -148,3 +148,5 @@ D:\ASP.NET_Project\Talabat.Apis\obj\Debug\net6.0\refint\Talabat.Apis.dll
 D:\ASP.NET_Project\Talabat.Apis\obj\Debug\net6.0\Talabat.Apis.pdb
 D:\ASP.NET_Project\Talabat.Apis\obj\Debug\net6.0\Talabat.Apis.genruntimeconfig.cache
 D:\ASP.NET_Project\Talabat.Apis\obj\Debug\net6.0\ref\Talabat.Apis.dll
+D:\ASP.NET_Project\Talabat.Apis\bin\Debug\net6.0\Pipelines.Sockets.Unofficial.dll
+D:\ASP.NET_Project\Talabat.Apis\bin\Debug\net6.0\StackExchange.Redis.dll

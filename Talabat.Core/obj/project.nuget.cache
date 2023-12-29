@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "qXRyc7HkRHAommS+wcxNr/NySxB1v2gmEhe653BWFLIaFVeU49UgT5L+ds9SrjRcP3p4Oii0Ym2tM3V0utGpSQ==",
+  "dgSpecHash": "SF3xycij/eN9Qb8lpF/WZXdKlgtT3GJ9LDwUc0I9XrL6mbml1FoRF6N7dF9wkJc5ar3UtnF2LIAe9yM0QBG0QA==",
   "success": true,
   "projectFilePath": "D:\\ASP.NET_Project\\Talabat.Core\\Talabat.Core.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Haitham\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Haitham\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.8\\pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+    "C:\\Users\\Haitham\\.nuget\\packages\\stackexchange.redis\\2.7.10\\stackexchange.redis.2.7.10.nupkg.sha512",
+    "C:\\Users\\Haitham\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
     "C:\\Users\\Haitham\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
     "C:\\Users\\Haitham\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
     "C:\\Users\\Haitham\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512"
