@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
@@ -7,9 +8,11 @@ using Talabat.Apis.Extensions;
 using Talabat.Apis.Helpers;
 using Talabat.Apis.Middlewares;
 using Talabat.Core.Entities;
+using Talabat.Core.Entities.Identity;
 using Talabat.Core.IRepositories;
 using Talabat.Repository;
 using Talabat.Repository.Data;
+using Talabat.Repository.Identity;
 
 namespace Talabat.Apis
 {
@@ -51,13 +54,36 @@ namespace Talabat.Apis
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            // Redis  DbContext
+            // Redis DbContext
             builder.Services.AddSingleton<IConnectionMultiplexer>(options =>
             {
                 return ConnectionMultiplexer.Connect(builder.Configuration.GetConnectionString("Redis"));
             });
+            
+            // Identity DbContext
+            builder.Services.AddDbContext<AppIdentityDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection"));
+            });
 
-            // This Fuction Has All Application Services
+            // We need to register three services of identity (UserManager - RoleManager - SignInManager)
+            // but we don't need to register all them one by one
+            // because we have method (AddIdentity) that will register the three services
+            // --- this method has another overload take action to if you need to configure any option of identity
+            builder.Services.AddIdentity<AppUser, IdentityRole>(option =>
+            {
+                option.Password.RequireLowercase = true;
+                option.Password.RequireUppercase = true;
+                option.Password.RequireDigit = true; 
+                option.Password.RequireNonAlphanumeric = true;
+                option.Password.RequiredUniqueChars = 3;
+                option.Password.RequiredLength = 6;
+            }).AddEntityFrameworkStores<AppIdentityDbContext>();
+            // ? this because the three services talking to another Store Services
+            // such as (UserManager talk to IUserStore to take all services like createAsync)
+            // so we allowed dependency injection to this services too
+
+            // This Function Has All Application Services
             builder.Services.AddApplicationServices();
 
             #region Validation Error - Bad Request
@@ -102,6 +128,8 @@ namespace Talabat.Apis
 
             // --> Bring Object Of StoreDbContext For Update Database
             var _storeDbContext = services.GetRequiredService<StoreDbContext>();
+            // --> Bring Object Of IdentityDbContext For Update Database
+            var _IdentityDbContext = services.GetRequiredService<AppIdentityDbContext>();
             // --> Bring Object Of ILoggerFactory For Good Show Error In Console    
             var loggerFactory = services.GetRequiredService<ILoggerFactory>();
 
@@ -110,8 +138,17 @@ namespace Talabat.Apis
                 // Migrate It In Try Catch To Avoid Throw Exception While Update Database
                 await _storeDbContext.Database.MigrateAsync();
 
-                // Seeding Data
+                // Seeding Data For StoreDbContext
                 await StoreDbContextSeed.SeedAsync(_storeDbContext);
+
+                // Migrate It In Try Catch To Avoid Throw Exception While Update Database
+                await _IdentityDbContext.Database.MigrateAsync();
+
+                // Seeding Data For IdentityDbContext
+                // -- but this seeding function create users, so it need to take object from UserManager not AppIdentityDbContext
+                // -- So we will add dependancy injection then ask clr to create object from UserManager
+                var _userManager = services.GetRequiredService<UserManager<AppUser>>();
+                await IdentityDbContextSeed.SeedUsersAsync(_userManager);
             }
             catch (Exception ex)     
             {
