@@ -1054,6 +1054,19 @@
         "runtime": {
           "bin/placeholder/Talabat.Repository.dll": {}
         }
+      },
+      "Talabat.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Talabat.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Talabat.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Talabat.Services.dll": {}
+        }
       }
     }
   },
@@ -2814,6 +2827,11 @@
       "type": "project",
       "path": "../Talabat.Repository/Talabat.Repository.csproj",
       "msbuildProject": "../Talabat.Repository/Talabat.Repository.csproj"
+    },
+    "Talabat.Services/1.0.0": {
+      "type": "project",
+      "path": "../Talabat.Services/Talabat.Services.csproj",
+      "msbuildProject": "../Talabat.Services/Talabat.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2821,7 +2839,8 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.25",
       "Swashbuckle.AspNetCore >= 6.5.0",
-      "Talabat.Repository >= 1.0.0"
+      "Talabat.Repository >= 1.0.0",
+      "Talabat.Services >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2853,6 +2872,9 @@
           "projectReferences": {
             "D:\\ASP.NET_Project\\Talabat.Repository\\Talabat.Repository.csproj": {
               "projectPath": "D:\\ASP.NET_Project\\Talabat.Repository\\Talabat.Repository.csproj"
+            },
+            "D:\\ASP.NET_Project\\Talabat.Services\\Talabat.Services.csproj": {
+              "projectPath": "D:\\ASP.NET_Project\\Talabat.Services\\Talabat.Services.csproj"
             }
           }
         }
