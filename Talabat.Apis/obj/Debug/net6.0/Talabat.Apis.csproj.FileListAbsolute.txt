@@ -155,3 +155,6 @@ D:\ASP.NET_Project\Talabat.Apis\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptograp
 D:\ASP.NET_Project\Talabat.Apis\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\ASP.NET_Project\Talabat.Apis\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 D:\ASP.NET_Project\Talabat.Apis\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+D:\ASP.NET_Project\Talabat.Apis\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\ASP.NET_Project\Talabat.Apis\bin\Debug\net6.0\Talabat.Services.dll
+D:\ASP.NET_Project\Talabat.Apis\bin\Debug\net6.0\Talabat.Services.pdb
