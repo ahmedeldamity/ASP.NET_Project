@@ -33,6 +33,12 @@ namespace Talabat.Apis.Extensions
             // Register Order Service
             services.AddScoped(typeof(IOrderService), typeof(OrderService));
 
+            // Register AuthService for token (JWT)
+            services.AddScoped(typeof(IAuthService), typeof(AuthService));
+
+            // Register Product Service
+            services.AddScoped(typeof(IProductService), typeof(ProductService));
+
             return services;
         }
     } 

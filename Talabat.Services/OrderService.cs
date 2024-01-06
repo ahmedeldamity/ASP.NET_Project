@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Talabat.Core;
+﻿using Talabat.Core;
 using Talabat.Core.Entities;
 using Talabat.Core.Entities.Order_Aggregiate;
 using Talabat.Core.IRepositories;
@@ -86,6 +81,15 @@ namespace Talabat.Services
             if(order is null) return null;
 
             return order;
+        }
+
+        public async Task<IReadOnlyList<DeliveryMethod>> GetAllDeliveryMethodsAsync()
+        {
+            var deliveryMethodsRepo = _unitOfWork.Repository<DeliveryMethod>();
+
+            var deliveryMethods = await deliveryMethodsRepo.GetAllAsync();
+
+            return deliveryMethods;
         }
     }
 }

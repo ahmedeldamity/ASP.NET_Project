@@ -20,3 +20,7 @@ D:\ASP.NET_Project\Talabat.Services\obj\Debug\net6.0\Talabat.Services.dll
 D:\ASP.NET_Project\Talabat.Services\obj\Debug\net6.0\refint\Talabat.Services.dll
 D:\ASP.NET_Project\Talabat.Services\obj\Debug\net6.0\Talabat.Services.pdb
 D:\ASP.NET_Project\Talabat.Services\obj\Debug\net6.0\ref\Talabat.Services.dll
+D:\ASP.NET_Project\Talabat.Services\bin\Debug\net6.0\Talabat.Core.dll
+D:\ASP.NET_Project\Talabat.Services\bin\Debug\net6.0\Talabat.Core.pdb
+D:\ASP.NET_Project\Talabat.Services\obj\Debug\net6.0\Talabat.Services.csproj.AssemblyReference.cache
+D:\ASP.NET_Project\Talabat.Services\obj\Debug\net6.0\Talabat.Services.csproj.CopyComplete
